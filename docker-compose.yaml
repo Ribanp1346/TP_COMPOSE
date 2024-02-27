@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:latest
+    container_name: ${NAME_CONTAINER_MYSQL}
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - ${PORTS_MYSQL}
+    volumes:
+      - ${VOLUME_MYSQL}
+
+  wordpress_8081:
+    image: wordpress:latest
+    container_name: ${NAME_CONTAINER_WORDPRESS_2}
+    environment:
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+      WORDPRESS_DB_USER: ${MWORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+    ports:
+      - ${PORTS_WORDPRESS_2}
+    volumes:
+      - ${VOLUME_WORDPRESS}
+
+  wordpress_8080:
+    image: wordpress:latest
+    container_name: ${NAME_CONTAINER_WORDPRESS_1}
+    environment:
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+      WORDPRESS_DB_USER: ${MWORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+    ports:
+      - ${PORTS_WORDPRESS_1}
+    volumes:
+      - ${VOLUME_WORDPRESS}
