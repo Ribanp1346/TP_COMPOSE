@@ -1,0 +1,10 @@
+# Ignore les fichiers système
+.DS_Store
+
+# Ignore les fichiers de configuration système
+*.log
+*.swp
+*~
+
+# Ignore les fichiers générés lors de la construction
+/build
